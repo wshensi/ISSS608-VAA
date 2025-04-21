@@ -6,6 +6,8 @@ Welcome to ISSS608 Visual Analytics and Applications. In this website, you will 
 
 code:
 
+this is new code & graph:
+
 ```{r}
 1 + 1
 ```
