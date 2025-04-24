@@ -132,6 +132,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html">
  <span class="dropdown-text">Hands-on Exercise 1</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex02.html">
+ <span class="dropdown-text">Hands-on Exercise 2</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -143,6 +147,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/wshensi/ISSS608-VAA"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -160,43 +169,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting Started</a>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started"><span class="header-section-number">1</span> Getting Started</a>
   <ul class="collapse">
-  <li><a href="#install-and-launching-r-packages" id="toc-install-and-launching-r-packages" class="nav-link" data-scroll-target="#install-and-launching-r-packages">Install and launching R packages</a></li>
-  <li><a href="#importing-the-data" id="toc-importing-the-data" class="nav-link" data-scroll-target="#importing-the-data">Importing the data</a></li>
+  <li><a href="#install-and-launching-r-packages" id="toc-install-and-launching-r-packages" class="nav-link" data-scroll-target="#install-and-launching-r-packages"><span class="header-section-number">1.1</span> Install and launching R packages</a></li>
+  <li><a href="#importing-the-data" id="toc-importing-the-data" class="nav-link" data-scroll-target="#importing-the-data"><span class="header-section-number">1.2</span> Importing the data</a></li>
   </ul></li>
-  <li><a href="#plotting-a-simple-bar-chart" id="toc-plotting-a-simple-bar-chart" class="nav-link" data-scroll-target="#plotting-a-simple-bar-chart">Plotting a simple bar chart</a>
+  <li><a href="#plotting-a-simple-bar-chart" id="toc-plotting-a-simple-bar-chart" class="nav-link" data-scroll-target="#plotting-a-simple-bar-chart"><span class="header-section-number">2</span> Plotting a simple bar chart</a>
   <ul class="collapse">
-  <li><a href="#geometric-objects-geom_bar" id="toc-geometric-objects-geom_bar" class="nav-link" data-scroll-target="#geometric-objects-geom_bar">Geometric Objects: geom_bar</a></li>
-  <li><a href="#geometric-objects-geom_dotplot" id="toc-geometric-objects-geom_dotplot" class="nav-link" data-scroll-target="#geometric-objects-geom_dotplot">Geometric Objects: geom_dotplot</a></li>
-  <li><a href="#geometric-objects-geom_histogram" id="toc-geometric-objects-geom_histogram" class="nav-link" data-scroll-target="#geometric-objects-geom_histogram">Geometric Objects: <code>geom_histogram()</code></a></li>
-  <li><a href="#modifying-a-geometric-object-by-changing-geom" id="toc-modifying-a-geometric-object-by-changing-geom" class="nav-link" data-scroll-target="#modifying-a-geometric-object-by-changing-geom">Modifying a geometric object by changing <code>geom()</code></a></li>
-  <li><a href="#modifying-a-geometric-object-by-changing-aes" id="toc-modifying-a-geometric-object-by-changing-aes" class="nav-link" data-scroll-target="#modifying-a-geometric-object-by-changing-aes">Modifying a geometric object by changing <em>aes()</em></a></li>
-  <li><a href="#geometric-objects-geom-density" id="toc-geometric-objects-geom-density" class="nav-link" data-scroll-target="#geometric-objects-geom-density">Geometric Objects: geom-density()</a></li>
-  <li><a href="#geometric-objects-geom_boxplot" id="toc-geometric-objects-geom_boxplot" class="nav-link" data-scroll-target="#geometric-objects-geom_boxplot"><strong>Geometric Objects: geom_boxplot</strong></a></li>
-  <li><a href="#geometric-objects-geom_violin" id="toc-geometric-objects-geom_violin" class="nav-link" data-scroll-target="#geometric-objects-geom_violin">Geometric Objects: geom_violin</a></li>
-  <li><a href="#geometric-objects-geom_point" id="toc-geometric-objects-geom_point" class="nav-link" data-scroll-target="#geometric-objects-geom_point"><strong>Geometric Objects: geom_point()</strong></a></li>
-  <li><a href="#geom-objects-can-be-combined" id="toc-geom-objects-can-be-combined" class="nav-link" data-scroll-target="#geom-objects-can-be-combined"><strong><em>Geom</em></strong> <strong>Objects can be combined</strong></a></li>
-  <li><a href="#essential-grammatical-elements-in-ggplot2-stat" id="toc-essential-grammatical-elements-in-ggplot2-stat" class="nav-link" data-scroll-target="#essential-grammatical-elements-in-ggplot2-stat"><strong>Essential Grammatical Elements in ggplot2: stat</strong></a></li>
-  <li><a href="#working-with-stat" id="toc-working-with-stat" class="nav-link" data-scroll-target="#working-with-stat"><strong>Working with <code>stat()</code></strong></a></li>
-  <li><a href="#working-with-stat---the-stat_summary-method" id="toc-working-with-stat---the-stat_summary-method" class="nav-link" data-scroll-target="#working-with-stat---the-stat_summary-method"><strong>Working with stat - the <em>stat_summary()</em> method</strong></a></li>
-  <li><a href="#working-with-stat---the-geom-method" id="toc-working-with-stat---the-geom-method" class="nav-link" data-scroll-target="#working-with-stat---the-geom-method"><strong>Working with stat - the <code>geom()</code> method</strong></a></li>
-  <li><a href="#adding-a-best-fit-curve-on-a-scatterplot" id="toc-adding-a-best-fit-curve-on-a-scatterplot" class="nav-link" data-scroll-target="#adding-a-best-fit-curve-on-a-scatterplot"><strong>Adding a best fit curve on a scatterplot?</strong></a></li>
-  <li><a href="#essential-grammatical-elements-in-ggplot2-facets" id="toc-essential-grammatical-elements-in-ggplot2-facets" class="nav-link" data-scroll-target="#essential-grammatical-elements-in-ggplot2-facets"><strong>Essential Grammatical Elements in ggplot2: Facets</strong></a>
+  <li><a href="#geometric-objects-geom_bar" id="toc-geometric-objects-geom_bar" class="nav-link" data-scroll-target="#geometric-objects-geom_bar"><span class="header-section-number">2.1</span> Geometric Objects: geom_bar</a></li>
+  <li><a href="#geometric-objects-geom_dotplot" id="toc-geometric-objects-geom_dotplot" class="nav-link" data-scroll-target="#geometric-objects-geom_dotplot"><span class="header-section-number">2.2</span> Geometric Objects: geom_dotplot</a></li>
+  <li><a href="#geometric-objects-geom_histogram" id="toc-geometric-objects-geom_histogram" class="nav-link" data-scroll-target="#geometric-objects-geom_histogram"><span class="header-section-number">2.3</span> Geometric Objects: <code>geom_histogram()</code></a></li>
+  <li><a href="#modifying-a-geometric-object-by-changing-geom" id="toc-modifying-a-geometric-object-by-changing-geom" class="nav-link" data-scroll-target="#modifying-a-geometric-object-by-changing-geom"><span class="header-section-number">2.4</span> Modifying a geometric object by changing <code>geom()</code></a></li>
+  <li><a href="#modifying-a-geometric-object-by-changing-aes" id="toc-modifying-a-geometric-object-by-changing-aes" class="nav-link" data-scroll-target="#modifying-a-geometric-object-by-changing-aes"><span class="header-section-number">2.5</span> Modifying a geometric object by changing <em>aes()</em></a></li>
+  <li><a href="#geometric-objects-geom-density" id="toc-geometric-objects-geom-density" class="nav-link" data-scroll-target="#geometric-objects-geom-density"><span class="header-section-number">2.6</span> Geometric Objects: geom-density()</a></li>
+  <li><a href="#geometric-objects-geom_boxplot" id="toc-geometric-objects-geom_boxplot" class="nav-link" data-scroll-target="#geometric-objects-geom_boxplot"><span class="header-section-number">2.7</span> <strong>Geometric Objects: geom_boxplot</strong></a></li>
+  <li><a href="#geometric-objects-geom_violin" id="toc-geometric-objects-geom_violin" class="nav-link" data-scroll-target="#geometric-objects-geom_violin"><span class="header-section-number">2.8</span> Geometric Objects: geom_violin</a></li>
+  <li><a href="#geometric-objects-geom_point" id="toc-geometric-objects-geom_point" class="nav-link" data-scroll-target="#geometric-objects-geom_point"><span class="header-section-number">2.9</span> <strong>Geometric Objects: geom_point()</strong></a></li>
+  <li><a href="#geom-objects-can-be-combined" id="toc-geom-objects-can-be-combined" class="nav-link" data-scroll-target="#geom-objects-can-be-combined"><span class="header-section-number">2.10</span> <strong><em>Geom</em></strong> <strong>Objects can be combined</strong></a></li>
+  <li><a href="#essential-grammatical-elements-in-ggplot2-stat" id="toc-essential-grammatical-elements-in-ggplot2-stat" class="nav-link" data-scroll-target="#essential-grammatical-elements-in-ggplot2-stat"><span class="header-section-number">2.11</span> <strong>Essential Grammatical Elements in ggplot2: stat</strong></a></li>
+  <li><a href="#working-with-stat" id="toc-working-with-stat" class="nav-link" data-scroll-target="#working-with-stat"><span class="header-section-number">2.12</span> <strong>Working with <code>stat()</code></strong></a></li>
+  <li><a href="#working-with-stat---the-stat_summary-method" id="toc-working-with-stat---the-stat_summary-method" class="nav-link" data-scroll-target="#working-with-stat---the-stat_summary-method"><span class="header-section-number">2.13</span> <strong>Working with stat - the <em>stat_summary()</em> method</strong></a></li>
+  <li><a href="#working-with-stat---the-geom-method" id="toc-working-with-stat---the-geom-method" class="nav-link" data-scroll-target="#working-with-stat---the-geom-method"><span class="header-section-number">2.14</span> <strong>Working with stat - the <code>geom()</code> method</strong></a></li>
+  <li><a href="#adding-a-best-fit-curve-on-a-scatterplot" id="toc-adding-a-best-fit-curve-on-a-scatterplot" class="nav-link" data-scroll-target="#adding-a-best-fit-curve-on-a-scatterplot"><span class="header-section-number">2.15</span> <strong>Adding a best fit curve on a scatterplot?</strong></a></li>
+  <li><a href="#essential-grammatical-elements-in-ggplot2-facets" id="toc-essential-grammatical-elements-in-ggplot2-facets" class="nav-link" data-scroll-target="#essential-grammatical-elements-in-ggplot2-facets"><span class="header-section-number">2.16</span> <strong>Essential Grammatical Elements in ggplot2: Facets</strong></a>
   <ul class="collapse">
-  <li><a href="#working-with-facet_wrap" id="toc-working-with-facet_wrap" class="nav-link" data-scroll-target="#working-with-facet_wrap"><strong>Working with <code>facet_wrap()</code></strong></a></li>
-  <li><a href="#facet_grid-function" id="toc-facet_grid-function" class="nav-link" data-scroll-target="#facet_grid-function"><strong><code>facet_grid()</code> function</strong></a></li>
+  <li><a href="#working-with-facet_wrap" id="toc-working-with-facet_wrap" class="nav-link" data-scroll-target="#working-with-facet_wrap"><span class="header-section-number">2.16.1</span> <strong>Working with <code>facet_wrap()</code></strong></a></li>
+  <li><a href="#facet_grid-function" id="toc-facet_grid-function" class="nav-link" data-scroll-target="#facet_grid-function"><span class="header-section-number">2.16.2</span> <strong><code>facet_grid()</code> function</strong></a></li>
   </ul></li>
-  <li><a href="#essential-grammatical-elements-in-ggplot2-coordinates" id="toc-essential-grammatical-elements-in-ggplot2-coordinates" class="nav-link" data-scroll-target="#essential-grammatical-elements-in-ggplot2-coordinates"><strong>Essential Grammatical Elements in ggplot2: Coordinates</strong></a>
+  <li><a href="#essential-grammatical-elements-in-ggplot2-coordinates" id="toc-essential-grammatical-elements-in-ggplot2-coordinates" class="nav-link" data-scroll-target="#essential-grammatical-elements-in-ggplot2-coordinates"><span class="header-section-number">2.17</span> <strong>Essential Grammatical Elements in ggplot2: Coordinates</strong></a>
   <ul class="collapse">
-  <li><a href="#working-with-coordinate" id="toc-working-with-coordinate" class="nav-link" data-scroll-target="#working-with-coordinate"><strong>Working with Coordinate</strong></a></li>
-  <li><a href="#changing-the-y--and-x-axis-range" id="toc-changing-the-y--and-x-axis-range" class="nav-link" data-scroll-target="#changing-the-y--and-x-axis-range"><strong>Changing the y- and x-axis range</strong></a></li>
+  <li><a href="#working-with-coordinate" id="toc-working-with-coordinate" class="nav-link" data-scroll-target="#working-with-coordinate"><span class="header-section-number">2.17.1</span> <strong>Working with Coordinate</strong></a></li>
+  <li><a href="#changing-the-y--and-x-axis-range" id="toc-changing-the-y--and-x-axis-range" class="nav-link" data-scroll-target="#changing-the-y--and-x-axis-range"><span class="header-section-number">2.17.2</span> <strong>Changing the y- and x-axis range</strong></a></li>
   </ul></li>
-  <li><a href="#essential-grammatical-elements-in-ggplot2-themes" id="toc-essential-grammatical-elements-in-ggplot2-themes" class="nav-link" data-scroll-target="#essential-grammatical-elements-in-ggplot2-themes"><strong>Essential Grammatical Elements in ggplot2: themes</strong></a>
+  <li><a href="#essential-grammatical-elements-in-ggplot2-themes" id="toc-essential-grammatical-elements-in-ggplot2-themes" class="nav-link" data-scroll-target="#essential-grammatical-elements-in-ggplot2-themes"><span class="header-section-number">2.18</span> <strong>Essential Grammatical Elements in ggplot2: themes</strong></a>
   <ul class="collapse">
-  <li><a href="#working-with-theme" id="toc-working-with-theme" class="nav-link" data-scroll-target="#working-with-theme"><strong>Working with theme</strong></a></li>
+  <li><a href="#working-with-theme" id="toc-working-with-theme" class="nav-link" data-scroll-target="#working-with-theme"><span class="header-section-number">2.18.1</span> <strong>Working with theme</strong></a></li>
   </ul></li>
-  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><strong>Reference</strong></a></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">2.19</span> <strong>Reference</strong></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -229,17 +238,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="getting-started" class="level1">
-<h1>Getting Started</h1>
-<section id="install-and-launching-r-packages" class="level2">
-<h2 class="anchored" data-anchor-id="install-and-launching-r-packages">Install and launching R packages</h2>
+<section id="getting-started" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Getting Started</h1>
+<section id="install-and-launching-r-packages" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="install-and-launching-r-packages"><span class="header-section-number">1.1</span> Install and launching R packages</h2>
 <p>The code chunk below uses p_load() of pacman package to check if tidyverse packages are installed in the computer. If they are, then they will be launched into R.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="importing-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="importing-the-data">Importing the data</h2>
+<section id="importing-the-data" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="importing-the-data"><span class="header-section-number">1.2</span> Importing the data</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>exam_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Exam_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -255,8 +264,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </section>
 </section>
-<section id="plotting-a-simple-bar-chart" class="level1">
-<h1>Plotting a simple bar chart</h1>
+<section id="plotting-a-simple-bar-chart" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Plotting a simple bar chart</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> exam_data,</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> RACE)) <span class="sc">+</span></span>
@@ -298,8 +307,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </div>
 </div>
-<section id="geometric-objects-geom_bar" class="level2">
-<h2 class="anchored" data-anchor-id="geometric-objects-geom_bar">Geometric Objects: geom_bar</h2>
+<section id="geometric-objects-geom_bar" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="geometric-objects-geom_bar"><span class="header-section-number">2.1</span> Geometric Objects: geom_bar</h2>
 <p>The code chunk below plots a bar chart by using&nbsp;<a href="https://ggplot2.tidyverse.org/reference/geom_bar.html"><code>geom_bar()</code></a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>exam_data, </span>
@@ -314,8 +323,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </div>
 </section>
-<section id="geometric-objects-geom_dotplot" class="level2">
-<h2 class="anchored" data-anchor-id="geometric-objects-geom_dotplot">Geometric Objects: geom_dotplot</h2>
+<section id="geometric-objects-geom_dotplot" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="geometric-objects-geom_dotplot"><span class="header-section-number">2.2</span> Geometric Objects: geom_dotplot</h2>
 <p>In the code chunk below,&nbsp;<a href="https://ggplot2.tidyverse.org/reference/geom_dotplot.html"><code>geom_dotplot()</code></a>&nbsp;of ggplot2 is used to plot a dot plot.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>exam_data, </span>
@@ -349,8 +358,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </div>
 </section>
-<section id="geometric-objects-geom_histogram" class="level2">
-<h2 class="anchored" data-anchor-id="geometric-objects-geom_histogram">Geometric Objects: <code>geom_histogram()</code></h2>
+<section id="geometric-objects-geom_histogram" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="geometric-objects-geom_histogram"><span class="header-section-number">2.3</span> Geometric Objects: <code>geom_histogram()</code></h2>
 <p>In the code chunk below,&nbsp;<a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html"><em>geom_histogram()</em></a>&nbsp;is used to create a simple histogram by using values in&nbsp;<em>MATHS</em>&nbsp;field of&nbsp;<em>exam_data</em>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>exam_data, </span>
@@ -368,8 +377,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </div>
 </section>
-<section id="modifying-a-geometric-object-by-changing-geom" class="level2">
-<h2 class="anchored" data-anchor-id="modifying-a-geometric-object-by-changing-geom">Modifying a geometric object by changing <code>geom()</code></h2>
+<section id="modifying-a-geometric-object-by-changing-geom" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="modifying-a-geometric-object-by-changing-geom"><span class="header-section-number">2.4</span> Modifying a geometric object by changing <code>geom()</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>exam_data, </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span> MATHS)) <span class="sc">+</span></span>
@@ -385,8 +394,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </div>
 </section>
-<section id="modifying-a-geometric-object-by-changing-aes" class="level2">
-<h2 class="anchored" data-anchor-id="modifying-a-geometric-object-by-changing-aes">Modifying a geometric object by changing <em>aes()</em></h2>
+<section id="modifying-a-geometric-object-by-changing-aes" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="modifying-a-geometric-object-by-changing-aes"><span class="header-section-number">2.5</span> Modifying a geometric object by changing <em>aes()</em></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>exam_data, </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span> MATHS, </span>
@@ -402,8 +411,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </div>
 </section>
-<section id="geometric-objects-geom-density" class="level2">
-<h2 class="anchored" data-anchor-id="geometric-objects-geom-density">Geometric Objects: geom-density()</h2>
+<section id="geometric-objects-geom-density" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="geometric-objects-geom-density"><span class="header-section-number">2.6</span> Geometric Objects: geom-density()</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>exam_data, </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> MATHS)) <span class="sc">+</span></span>
@@ -431,8 +440,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </div>
 </section>
-<section id="geometric-objects-geom_boxplot" class="level2">
-<h2 class="anchored" data-anchor-id="geometric-objects-geom_boxplot"><strong>Geometric Objects: geom_boxplot</strong></h2>
+<section id="geometric-objects-geom_boxplot" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="geometric-objects-geom_boxplot"><span class="header-section-number">2.7</span> <strong>Geometric Objects: geom_boxplot</strong></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>exam_data, </span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">y =</span> MATHS,       </span>
@@ -460,8 +469,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </div>
 </section>
-<section id="geometric-objects-geom_violin" class="level2">
-<h2 class="anchored" data-anchor-id="geometric-objects-geom_violin">Geometric Objects: geom_violin</h2>
+<section id="geometric-objects-geom_violin" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="geometric-objects-geom_violin"><span class="header-section-number">2.8</span> Geometric Objects: geom_violin</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>exam_data, </span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">y =</span> MATHS, </span>
@@ -476,8 +485,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </div>
 </section>
-<section id="geometric-objects-geom_point" class="level2">
-<h2 class="anchored" data-anchor-id="geometric-objects-geom_point"><strong>Geometric Objects: geom_point()</strong></h2>
+<section id="geometric-objects-geom_point" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="geometric-objects-geom_point"><span class="header-section-number">2.9</span> <strong>Geometric Objects: geom_point()</strong></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>exam_data, </span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span> MATHS, </span>
@@ -492,8 +501,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </div>
 </section>
-<section id="geom-objects-can-be-combined" class="level2">
-<h2 class="anchored" data-anchor-id="geom-objects-can-be-combined"><strong><em>Geom</em></strong> <strong>Objects can be combined</strong></h2>
+<section id="geom-objects-can-be-combined" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="geom-objects-can-be-combined"><span class="header-section-number">2.10</span> <strong><em>Geom</em></strong> <strong>Objects can be combined</strong></h2>
 <p>The code chunk below plots the data points on the boxplots by using both&nbsp;<code>geom_boxplot()</code>&nbsp;and&nbsp;<code>geom_point()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>exam_data, </span>
@@ -511,8 +520,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </div>
 </section>
-<section id="essential-grammatical-elements-in-ggplot2-stat" class="level2">
-<h2 class="anchored" data-anchor-id="essential-grammatical-elements-in-ggplot2-stat"><strong>Essential Grammatical Elements in ggplot2: stat</strong></h2>
+<section id="essential-grammatical-elements-in-ggplot2-stat" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="essential-grammatical-elements-in-ggplot2-stat"><span class="header-section-number">2.11</span> <strong>Essential Grammatical Elements in ggplot2: stat</strong></h2>
 <p>The <a href="https://ggplot2.tidyverse.org/reference/index.html#stats">Statistics functions</a> statistically transform data, usually as some form of summary. For example:</p>
 <ul>
 <li><p>frequency of values of a variable (bar graph)</p>
@@ -527,8 +536,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </ul></li>
 </ul>
 </section>
-<section id="working-with-stat" class="level2">
-<h2 class="anchored" data-anchor-id="working-with-stat"><strong>Working with <code>stat()</code></strong></h2>
+<section id="working-with-stat" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="working-with-stat"><span class="header-section-number">2.12</span> <strong>Working with <code>stat()</code></strong></h2>
 <p>The boxplots below are incomplete because the positions of the means were not shown.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>exam_data, </span>
@@ -543,8 +552,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </div>
 </section>
-<section id="working-with-stat---the-stat_summary-method" class="level2">
-<h2 class="anchored" data-anchor-id="working-with-stat---the-stat_summary-method"><strong>Working with stat - the <em>stat_summary()</em> method</strong></h2>
+<section id="working-with-stat---the-stat_summary-method" class="level2" data-number="2.13">
+<h2 data-number="2.13" class="anchored" data-anchor-id="working-with-stat---the-stat_summary-method"><span class="header-section-number">2.13</span> <strong>Working with stat - the <em>stat_summary()</em> method</strong></h2>
 <p>The code chunk below adds mean values by using&nbsp;<a href="https://ggplot2.tidyverse.org/reference/stat_summary.html"><code>stat_summary()</code></a>&nbsp;function and overriding the default geom.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>exam_data, </span>
@@ -563,8 +572,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </div>
 </section>
-<section id="working-with-stat---the-geom-method" class="level2">
-<h2 class="anchored" data-anchor-id="working-with-stat---the-geom-method"><strong>Working with stat - the <code>geom()</code> method</strong></h2>
+<section id="working-with-stat---the-geom-method" class="level2" data-number="2.14">
+<h2 data-number="2.14" class="anchored" data-anchor-id="working-with-stat---the-geom-method"><span class="header-section-number">2.14</span> <strong>Working with stat - the <code>geom()</code> method</strong></h2>
 <p>The code chunk below adding mean values by using&nbsp;<code>geom_()</code>&nbsp;function and overriding the default stat.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>exam_data, </span>
@@ -583,8 +592,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </div>
 </section>
-<section id="adding-a-best-fit-curve-on-a-scatterplot" class="level2">
-<h2 class="anchored" data-anchor-id="adding-a-best-fit-curve-on-a-scatterplot"><strong>Adding a best fit curve on a scatterplot?</strong></h2>
+<section id="adding-a-best-fit-curve-on-a-scatterplot" class="level2" data-number="2.15">
+<h2 data-number="2.15" class="anchored" data-anchor-id="adding-a-best-fit-curve-on-a-scatterplot"><span class="header-section-number">2.15</span> <strong>Adding a best fit curve on a scatterplot?</strong></h2>
 <p>In the code chunk below,&nbsp;<a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html"><code>geom_smooth()</code></a>&nbsp;is used to plot a best fit curve on the scatterplot.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>exam_data, </span>
@@ -626,11 +635,11 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </div>
 </section>
-<section id="essential-grammatical-elements-in-ggplot2-facets" class="level2">
-<h2 class="anchored" data-anchor-id="essential-grammatical-elements-in-ggplot2-facets"><strong>Essential Grammatical Elements in ggplot2: Facets</strong></h2>
+<section id="essential-grammatical-elements-in-ggplot2-facets" class="level2" data-number="2.16">
+<h2 data-number="2.16" class="anchored" data-anchor-id="essential-grammatical-elements-in-ggplot2-facets"><span class="header-section-number">2.16</span> <strong>Essential Grammatical Elements in ggplot2: Facets</strong></h2>
 <p>Facetting generates small multiples (sometimes also called trellis plot), each displaying a different subset of the data. They are an alternative to aesthetics for displaying additional discrete variables. ggplot2 supports two types of factes, namely:&nbsp;<a href="https://ggplot2.tidyverse.org/reference/facet_grid.html"><code>facet_grid()</code></a>&nbsp;and&nbsp;<a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html"><code>facet_wrap</code></a>.</p>
-<section id="working-with-facet_wrap" class="level3">
-<h3 class="anchored" data-anchor-id="working-with-facet_wrap"><strong>Working with <code>facet_wrap()</code></strong></h3>
+<section id="working-with-facet_wrap" class="level3" data-number="2.16.1">
+<h3 data-number="2.16.1" class="anchored" data-anchor-id="working-with-facet_wrap"><span class="header-section-number">2.16.1</span> <strong>Working with <code>facet_wrap()</code></strong></h3>
 <p><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html"><code>facet_wrap</code></a> wraps a 1d sequence of panels into 2d. This is generally a better use of screen space than facet_grid because most displays are roughly rectangular.</p>
 <p>The code chunk below plots a trellis plot using <code>facet-wrap()</code>.</p>
 <div class="cell">
@@ -647,8 +656,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </div>
 </section>
-<section id="facet_grid-function" class="level3">
-<h3 class="anchored" data-anchor-id="facet_grid-function"><strong><code>facet_grid()</code> function</strong></h3>
+<section id="facet_grid-function" class="level3" data-number="2.16.2">
+<h3 data-number="2.16.2" class="anchored" data-anchor-id="facet_grid-function"><span class="header-section-number">2.16.2</span> <strong><code>facet_grid()</code> function</strong></h3>
 <p><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html"><code>facet_grid()</code></a> forms a matrix of panels defined by row and column facetting variables. It is most useful when you have two discrete variables, and all combinations of the variables exist in the data.</p>
 <p>The code chunk below plots a trellis plot using <code>facet_grid()</code>.</p>
 <div class="cell">
@@ -666,15 +675,15 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </section>
 </section>
-<section id="essential-grammatical-elements-in-ggplot2-coordinates" class="level2">
-<h2 class="anchored" data-anchor-id="essential-grammatical-elements-in-ggplot2-coordinates"><strong>Essential Grammatical Elements in ggplot2: Coordinates</strong></h2>
+<section id="essential-grammatical-elements-in-ggplot2-coordinates" class="level2" data-number="2.17">
+<h2 data-number="2.17" class="anchored" data-anchor-id="essential-grammatical-elements-in-ggplot2-coordinates"><span class="header-section-number">2.17</span> <strong>Essential Grammatical Elements in ggplot2: Coordinates</strong></h2>
 <p>The&nbsp;<em>Coordinates</em>&nbsp;functions map the position of objects onto the plane of the plot. There are a number of different possible coordinate systems to use, they are:</p>
 <pre><code>-   [`coord_cartesian()`](https://ggplot2.tidyverse.org/reference/coord_cartesian.html): the default cartesian coordinate systems, where you specify x and y values (e.g. allows you to zoom in or out).
 -   [`coord_flip()`](https://ggplot2.tidyverse.org/reference/coord_flip.html): a cartesian system with the x and y flipped.
 -   [`coord_fixed()`](https://ggplot2.tidyverse.org/reference/coord_fixed.html): a cartesian system with a "fixed" aspect ratio (e.g. 1.78 for a "widescreen" plot).
 -   [`coord_quickmap()`](https://ggplot2.tidyverse.org/reference/coord_map.html): a coordinate system that approximates a good aspect ratio for maps.</code></pre>
-<section id="working-with-coordinate" class="level3">
-<h3 class="anchored" data-anchor-id="working-with-coordinate"><strong>Working with Coordinate</strong></h3>
+<section id="working-with-coordinate" class="level3" data-number="2.17.1">
+<h3 data-number="2.17.1" class="anchored" data-anchor-id="working-with-coordinate"><span class="header-section-number">2.17.1</span> <strong>Working with Coordinate</strong></h3>
 <p>By the default, the bar chart of ggplot2 is in vertical form.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>exam_data, </span>
@@ -703,8 +712,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </div>
 </section>
-<section id="changing-the-y--and-x-axis-range" class="level3">
-<h3 class="anchored" data-anchor-id="changing-the-y--and-x-axis-range"><strong>Changing the y- and x-axis range</strong></h3>
+<section id="changing-the-y--and-x-axis-range" class="level3" data-number="2.17.2">
+<h3 data-number="2.17.2" class="anchored" data-anchor-id="changing-the-y--and-x-axis-range"><span class="header-section-number">2.17.2</span> <strong>Changing the y- and x-axis range</strong></h3>
 <p>The scatterplot on the right is slightly misleading because the y-aixs and x-axis range are not equal.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>exam_data, </span>
@@ -744,8 +753,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </section>
 </section>
-<section id="essential-grammatical-elements-in-ggplot2-themes" class="level2">
-<h2 class="anchored" data-anchor-id="essential-grammatical-elements-in-ggplot2-themes"><strong>Essential Grammatical Elements in ggplot2: themes</strong></h2>
+<section id="essential-grammatical-elements-in-ggplot2-themes" class="level2" data-number="2.18">
+<h2 data-number="2.18" class="anchored" data-anchor-id="essential-grammatical-elements-in-ggplot2-themes"><span class="header-section-number">2.18</span> <strong>Essential Grammatical Elements in ggplot2: themes</strong></h2>
 <p>Themes control elements of the graph not related to the data. For example:</p>
 <ul>
 <li><p>background colour</p></li>
@@ -755,8 +764,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </ul>
 <p>Built-in themes include: - <code>theme_gray()</code> (default) - <code>theme_bw()</code> - <code>theme_classic()</code></p>
 <p>A list of theme can be found at this <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">link</a>. Each theme element can be conceived of as either a line (e.g.&nbsp;x-axis), a rectangle (e.g.&nbsp;graph background), or text (e.g.&nbsp;axis title).</p>
-<section id="working-with-theme" class="level3">
-<h3 class="anchored" data-anchor-id="working-with-theme"><strong>Working with theme</strong></h3>
+<section id="working-with-theme" class="level3" data-number="2.18.1">
+<h3 data-number="2.18.1" class="anchored" data-anchor-id="working-with-theme"><span class="header-section-number">2.18.1</span> <strong>Working with theme</strong></h3>
 <p>The code chunk below plot a horizontal bar chart using&nbsp;<code>theme_gray()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>exam_data, </span>
@@ -804,8 +813,8 @@ dbl (3): ENGLISH, MATHS, SCIENCE
 </div>
 </section>
 </section>
-<section id="reference" class="level2">
-<h2 class="anchored" data-anchor-id="reference"><strong>Reference</strong></h2>
+<section id="reference" class="level2" data-number="2.19">
+<h2 data-number="2.19" class="anchored" data-anchor-id="reference"><span class="header-section-number">2.19</span> <strong>Reference</strong></h2>
 <ul>
 <li><p>Hadley Wickham (2023) <a href="https://ggplot2-book.org/"><strong>ggplot2: Elegant Graphics for Data Analysis</strong></a>. Online 3rd edition.</p></li>
 <li><p>Winston Chang (2013) <a href="https://r-graphics.org/"><strong>R Graphics Cookbook 2nd edition</strong></a>. Online version.</p></li>
@@ -1241,6 +1250,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 ISSS608 - Visual Analytics</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://quarto.org">
+<p>Built with Quarto</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 
