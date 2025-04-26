@@ -12,14 +12,13 @@ website:
           - text: "Hands-on Exercise 1"
             href: "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex01.html"
           - text: "Hands-on Exercise 2"
-            href: "Hands-on_Ex/Hands-on_Ex01/Hands-on_Ex02.html"
+            href: "Hands-on_Ex/Hands-on_Ex02/Hands-on_Ex02.html"
+          - text: "Hands-on Exercise 3"
+            href: "Hands-on_Ex/Hands-on_Ex03/Hands-on_Ex03.html"
     right:
       - href: index.qmd
         text: Home
       - about.qmd
-      - icon: github
-        href: https://github.com/wshensi/ISSS608-VAA
-        aria-label: GitHub
 
   page-footer:
     left: "© 2025 ISSS608 - Visual Analytics"

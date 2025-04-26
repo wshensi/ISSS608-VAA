@@ -1,6 +1,16 @@
 ---
 title: "Hands-on Exercise 2"
+description: ""
+date: "April 24, 2025"
+date-modified: "April 25, 2025"
+format: html
 author: "Wang Shen Si"
+editor: visual
+execute: 
+  eval: true
+  echo: true
+  warning: false
+  freeze: true
 ---
 
 # **Beyond ggplot2 Fundamentals**
