@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -139,7 +139,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex03/Hands-on_Ex03.html">
- <span class="dropdown-text">Hands-on Exercise 3</span></a>
+ <span class="dropdown-text">Hands-on Exercise 3.1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex03/Hands-on_Ex03.2.html">
+ <span class="dropdown-text">Hands-on Exercise 3.2</span></a>
   </li>  
     </ul>
   </li>
@@ -163,12 +167,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Page Contents</h2>
    
-  <ul>
+  <ul class="collapse">
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started"><span class="header-section-number">1</span> Getting Started</a>
   <ul class="collapse">
   <li><a href="#install-and-launching-r-packages" id="toc-install-and-launching-r-packages" class="nav-link" data-scroll-target="#install-and-launching-r-packages"><span class="header-section-number">1.1</span> Install and launching R packages</a></li>
@@ -191,24 +194,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#working-with-stat---the-stat_summary-method" id="toc-working-with-stat---the-stat_summary-method" class="nav-link" data-scroll-target="#working-with-stat---the-stat_summary-method"><span class="header-section-number">2.13</span> <strong>Working with stat - the <em>stat_summary()</em> method</strong></a></li>
   <li><a href="#working-with-stat---the-geom-method" id="toc-working-with-stat---the-geom-method" class="nav-link" data-scroll-target="#working-with-stat---the-geom-method"><span class="header-section-number">2.14</span> <strong>Working with stat - the <code>geom()</code> method</strong></a></li>
   <li><a href="#adding-a-best-fit-curve-on-a-scatterplot" id="toc-adding-a-best-fit-curve-on-a-scatterplot" class="nav-link" data-scroll-target="#adding-a-best-fit-curve-on-a-scatterplot"><span class="header-section-number">2.15</span> <strong>Adding a best fit curve on a scatterplot?</strong></a></li>
-  <li><a href="#essential-grammatical-elements-in-ggplot2-facets" id="toc-essential-grammatical-elements-in-ggplot2-facets" class="nav-link" data-scroll-target="#essential-grammatical-elements-in-ggplot2-facets"><span class="header-section-number">2.16</span> <strong>Essential Grammatical Elements in ggplot2: Facets</strong></a>
-  <ul class="collapse">
-  <li><a href="#working-with-facet_wrap" id="toc-working-with-facet_wrap" class="nav-link" data-scroll-target="#working-with-facet_wrap"><span class="header-section-number">2.16.1</span> <strong>Working with <code>facet_wrap()</code></strong></a></li>
-  <li><a href="#facet_grid-function" id="toc-facet_grid-function" class="nav-link" data-scroll-target="#facet_grid-function"><span class="header-section-number">2.16.2</span> <strong><code>facet_grid()</code> function</strong></a></li>
-  </ul></li>
-  <li><a href="#essential-grammatical-elements-in-ggplot2-coordinates" id="toc-essential-grammatical-elements-in-ggplot2-coordinates" class="nav-link" data-scroll-target="#essential-grammatical-elements-in-ggplot2-coordinates"><span class="header-section-number">2.17</span> <strong>Essential Grammatical Elements in ggplot2: Coordinates</strong></a>
-  <ul class="collapse">
-  <li><a href="#working-with-coordinate" id="toc-working-with-coordinate" class="nav-link" data-scroll-target="#working-with-coordinate"><span class="header-section-number">2.17.1</span> <strong>Working with Coordinate</strong></a></li>
-  <li><a href="#changing-the-y--and-x-axis-range" id="toc-changing-the-y--and-x-axis-range" class="nav-link" data-scroll-target="#changing-the-y--and-x-axis-range"><span class="header-section-number">2.17.2</span> <strong>Changing the y- and x-axis range</strong></a></li>
-  </ul></li>
-  <li><a href="#essential-grammatical-elements-in-ggplot2-themes" id="toc-essential-grammatical-elements-in-ggplot2-themes" class="nav-link" data-scroll-target="#essential-grammatical-elements-in-ggplot2-themes"><span class="header-section-number">2.18</span> <strong>Essential Grammatical Elements in ggplot2: themes</strong></a>
-  <ul class="collapse">
-  <li><a href="#working-with-theme" id="toc-working-with-theme" class="nav-link" data-scroll-target="#working-with-theme"><span class="header-section-number">2.18.1</span> <strong>Working with theme</strong></a></li>
-  </ul></li>
+  <li><a href="#essential-grammatical-elements-in-ggplot2-facets" id="toc-essential-grammatical-elements-in-ggplot2-facets" class="nav-link" data-scroll-target="#essential-grammatical-elements-in-ggplot2-facets"><span class="header-section-number">2.16</span> <strong>Essential Grammatical Elements in ggplot2: Facets</strong></a></li>
+  <li><a href="#essential-grammatical-elements-in-ggplot2-coordinates" id="toc-essential-grammatical-elements-in-ggplot2-coordinates" class="nav-link" data-scroll-target="#essential-grammatical-elements-in-ggplot2-coordinates"><span class="header-section-number">2.17</span> <strong>Essential Grammatical Elements in ggplot2: Coordinates</strong></a></li>
+  <li><a href="#essential-grammatical-elements-in-ggplot2-themes" id="toc-essential-grammatical-elements-in-ggplot2-themes" class="nav-link" data-scroll-target="#essential-grammatical-elements-in-ggplot2-themes"><span class="header-section-number">2.18</span> <strong>Essential Grammatical Elements in ggplot2: themes</strong></a></li>
   <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">2.19</span> <strong>Reference</strong></a></li>
   </ul></li>
   </ul>
 </nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -1240,9 +1236,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="https://quarto.org">
-<p>Built with Quarto</p>
-</a>
+ Built with Quarto
   </li>  
 </ul>
     </div>

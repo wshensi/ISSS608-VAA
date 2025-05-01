@@ -61,7 +61,7 @@ exam_data <- read_csv("data/Exam_data.csv")
 
 ## **Interactive Data Visualisation - ggiraph methods**
 
-[ggiraph](https://davidgohel.github.io/ggiraph/index.html) ![](https://isss608-vriadi.netlify.app/hands-on_ex/hands-on_ex03_1/images/image1.jpg){width="34"} is an htmlwidget and a ggplot2 extension. It allows ggplot graphics to be interactive.
+[ggiraph](https://davidgohel.github.io/ggiraph/index.html) is an htmlwidget and a ggplot2 extension. It allows ggplot graphics to be interactive.
 
 Interactive is made with [**ggplot geometries**](https://davidgohel.github.io/ggiraph/reference/index.html#section-interactive-geometries) that can understand three arguments:
 

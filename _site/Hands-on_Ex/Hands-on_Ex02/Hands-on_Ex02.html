@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -139,7 +139,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex03/Hands-on_Ex03.html">
- <span class="dropdown-text">Hands-on Exercise 3</span></a>
+ <span class="dropdown-text">Hands-on Exercise 3.1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../Hands-on_Ex/Hands-on_Ex03/Hands-on_Ex03.2.html">
+ <span class="dropdown-text">Hands-on Exercise 3.2</span></a>
   </li>  
     </ul>
   </li>
@@ -163,41 +167,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Page Contents</h2>
    
-  <ul>
+  <ul class="collapse">
   <li><a href="#beyond-ggplot2-fundamentals" id="toc-beyond-ggplot2-fundamentals" class="nav-link active" data-scroll-target="#beyond-ggplot2-fundamentals"><span class="header-section-number">1</span> <strong>Beyond ggplot2 Fundamentals</strong></a>
   <ul class="collapse">
   <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><span class="header-section-number">1.1</span> <strong>Overview</strong></a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started"><span class="header-section-number">1.2</span> Getting Started</a>
-  <ul class="collapse">
-  <li><a href="#installing-and-loading-the-required-libraries" id="toc-installing-and-loading-the-required-libraries" class="nav-link" data-scroll-target="#installing-and-loading-the-required-libraries"><span class="header-section-number">1.2.1</span> <strong>Installing and loading the required libraries</strong></a></li>
-  <li><a href="#importing-data" id="toc-importing-data" class="nav-link" data-scroll-target="#importing-data"><span class="header-section-number">1.2.2</span> <strong>Importing data</strong></a></li>
-  </ul></li>
-  <li><a href="#beyond-ggplot2-annotation-ggrepel" id="toc-beyond-ggplot2-annotation-ggrepel" class="nav-link" data-scroll-target="#beyond-ggplot2-annotation-ggrepel"><span class="header-section-number">1.3</span> <strong>Beyond ggplot2 Annotation: ggrepel</strong></a>
-  <ul class="collapse">
-  <li><a href="#working-with-ggrepel" id="toc-working-with-ggrepel" class="nav-link" data-scroll-target="#working-with-ggrepel"><span class="header-section-number">1.3.1</span> <strong>Working with ggrepel</strong></a></li>
-  </ul></li>
-  <li><a href="#beyond-ggplot2-themes" id="toc-beyond-ggplot2-themes" class="nav-link" data-scroll-target="#beyond-ggplot2-themes"><span class="header-section-number">1.4</span> <strong>Beyond ggplot2 Themes</strong></a>
-  <ul class="collapse">
-  <li><a href="#working-with-ggtheme-package" id="toc-working-with-ggtheme-package" class="nav-link" data-scroll-target="#working-with-ggtheme-package"><span class="header-section-number">1.4.1</span> <strong>Working with ggtheme package</strong></a></li>
-  <li><a href="#working-with-hrbthems-package" id="toc-working-with-hrbthems-package" class="nav-link" data-scroll-target="#working-with-hrbthems-package"><span class="header-section-number">1.4.2</span> <strong>Working with hrbthems package</strong></a></li>
-  </ul></li>
-  <li><a href="#beyond-single-graph" id="toc-beyond-single-graph" class="nav-link" data-scroll-target="#beyond-single-graph"><span class="header-section-number">1.5</span> <strong>Beyond Single Graph</strong></a>
-  <ul class="collapse">
-  <li><a href="#combining-two-ggplot2-graphs" id="toc-combining-two-ggplot2-graphs" class="nav-link" data-scroll-target="#combining-two-ggplot2-graphs"><span class="header-section-number">1.5.1</span> <strong>Combining two ggplot2 graphs</strong></a></li>
-  <li><a href="#combining-three-ggplot2-graphs" id="toc-combining-three-ggplot2-graphs" class="nav-link" data-scroll-target="#combining-three-ggplot2-graphs"><span class="header-section-number">1.5.2</span> <strong>Combining three ggplot2 graphs</strong></a></li>
-  <li><a href="#creating-a-composite-figure-with-tag" id="toc-creating-a-composite-figure-with-tag" class="nav-link" data-scroll-target="#creating-a-composite-figure-with-tag"><span class="header-section-number">1.5.3</span> <strong>Creating a composite figure with tag</strong></a></li>
-  <li><a href="#creating-figure-with-insert" id="toc-creating-figure-with-insert" class="nav-link" data-scroll-target="#creating-figure-with-insert"><span class="header-section-number">1.5.4</span> <strong>Creating figure with insert</strong></a></li>
-  <li><a href="#creating-a-composite-figure-by-using-patchwork-and-ggtheme" id="toc-creating-a-composite-figure-by-using-patchwork-and-ggtheme" class="nav-link" data-scroll-target="#creating-a-composite-figure-by-using-patchwork-and-ggtheme"><span class="header-section-number">1.5.5</span> <strong>Creating a composite figure by using patchwork and ggtheme</strong></a></li>
-  </ul></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started"><span class="header-section-number">1.2</span> Getting Started</a></li>
+  <li><a href="#beyond-ggplot2-annotation-ggrepel" id="toc-beyond-ggplot2-annotation-ggrepel" class="nav-link" data-scroll-target="#beyond-ggplot2-annotation-ggrepel"><span class="header-section-number">1.3</span> <strong>Beyond ggplot2 Annotation: ggrepel</strong></a></li>
+  <li><a href="#beyond-ggplot2-themes" id="toc-beyond-ggplot2-themes" class="nav-link" data-scroll-target="#beyond-ggplot2-themes"><span class="header-section-number">1.4</span> <strong>Beyond ggplot2 Themes</strong></a></li>
+  <li><a href="#beyond-single-graph" id="toc-beyond-single-graph" class="nav-link" data-scroll-target="#beyond-single-graph"><span class="header-section-number">1.5</span> <strong>Beyond Single Graph</strong></a></li>
   <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="header-section-number">1.6</span> <strong>Reference</strong></a></li>
   </ul></li>
   </ul>
 </nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -1044,9 +1033,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="https://quarto.org">
-<p>Built with Quarto</p>
-</a>
+ Built with Quarto
   </li>  
 </ul>
     </div>
