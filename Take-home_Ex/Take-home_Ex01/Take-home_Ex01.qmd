@@ -1,0 +1,14 @@
+---
+title: "Take-home_Ex01"
+description: ""
+date: "May 02, 2025"
+date-modified: "May 02, 2025"
+format: html
+author: "Wang Shen Si"
+editor: visual
+execute: 
+  eval: true
+  echo: true
+  warning: false
+  freeze: true
+---
