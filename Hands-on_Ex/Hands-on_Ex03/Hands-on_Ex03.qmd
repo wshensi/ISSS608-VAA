@@ -1,5 +1,5 @@
 ---
-title: "Hands-on_Ex03.1"
+title: "Hands-on Exercise 3.1"
 description: "Programming Interactive Data Visualisation with R"
 date: "April 26, 2025"
 date-modified: "May 01, 2025"
