@@ -1,0 +1,14 @@
+---
+title: "Hands-on_Ex03.2"
+description: ""
+date: "May 01, 2025"
+date-modified: "May 01, 2025"
+format: html
+author: "Wang Shen Si"
+editor: visual
+execute: 
+  eval: true
+  echo: true
+  warning: false
+  freeze: true
+---
