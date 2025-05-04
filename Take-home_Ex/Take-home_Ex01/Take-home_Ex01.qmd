@@ -1,8 +1,8 @@
 ---
-title: "Take-home_Ex01"
+title: "Take-home Exercise 1"
 description: ""
 date: "May 02, 2025"
-date-modified: "May 02, 2025"
+date-modified: "May 04, 2025"
 format: html
 author: "Wang Shen Si"
 editor: visual
@@ -12,3 +12,255 @@ execute:
   warning: false
   freeze: true
 ---
+
+# Introduction
+
+## Background
+
+Singapore is a densely populated and urbanized country where population distribution varies significantly across regions and age groups. Understanding these differences is critical for effective urban planning, resource allocation, and policy design.
+
+## Objectives
+
+This take-home exercise aims to explore Singapore’s population distribution using 2024 census data. The specific objectives are:
+
+-   To analyze the age structure across different planning areas.
+
+-   To examine gender ratios by region and age.
+
+-   To identify areas with a higher concentration of young or elderly populations.
+
+# Getting Started
+
+## Tools Used
+
+The following R packages were used to support the data wrangling and visualization:
+
+```{r}
+#| label: setup
+#| include: false
+# 隐藏安装过程
+if (!require("pacman")) install.packages("pacman")
+```
+
+```{r}
+#| label: load-packages
+#| echo: true
+#| message: false
+pacman::p_load(gifski, gapminder, plotly, gganimate, tidyverse, ggiraph, DT, 
+               ggridges, patchwork, ggstatsplot, GGally, corrplot)
+```
+
+-   **tidyverse**: Data manipulation and plotting
+
+-   **ggthemes**: Additional themes for ggplot2
+
+-   **ggridges**: Ridge plots for age distribution
+
+-   **patchwork**: Layout manager for combining multiple plots
+
+-   **ggstatsplot**: Adds statistical results to plots
+
+-   **GGally**: Visualizing multiple variables at once
+
+-   **corrplot**: Correlation matrix visualizations
+
+## Data Source
+
+The dataset used is sourced from the Department of Statistics Singapore, which includes the following fields:
+
+-   `PA`: Planning Area
+-   `SZ`: Subzone
+-   `Age`: Age (0–100+)
+-   `Sex`: Gender (Males / Females)
+-   `Pop`: Number of residents
+-   `Time`: Year (all 2024)
+
+# Data Wrangling
+
+## Import Data
+
+```{r}
+respop <- read_csv("data/respopagesex2024.csv")
+```
+
+![](image/image1.png)
+
+## Data Cleaning
+
+To ensure the dataset is clean and ready for analysis, the following steps were performed:
+
+### Step 1: Remove Duplicates
+
+Remove any duplicated rows to avoid double-counting:
+
+```{r}
+respop <- distinct(respop)
+```
+
+### Step 2: Handle Missing Values
+
+Ensure there are no missing or malformed entries in critical columns:
+
+```{r}
+respop <- drop_na(respop)
+```
+
+### Step 3: Standardize Age Format
+
+The `Age` column includes a non-numeric category `"90_and_Over"` which cannot be coerced into an integer. We convert this category into a numeric age of **90**, representing a minimum estimate for analysis:
+
+```{r}
+respop <- respop %>%
+  mutate(Age = ifelse(Age == "90_and_Over", "90", Age),
+         Age = as.integer(Age))
+```
+
+::: callout-note
+This allows us to include elderly population data in age-based analyses such as population pyramids and dependency ratios.
+:::
+
+### Step 4: Convert Column Types
+
+Ensure categorical and numeric columns are properly formatted:
+
+```{r}
+respop <- respop %>%
+  mutate(
+    Sex = as.factor(Sex),
+    PA = as.factor(PA),
+    SZ = as.factor(SZ))
+```
+
+# Exploratory Data Analysis (EDA)
+
+This section explores Singapore’s 2024 resident population by analyzing age structure, gender ratios, and population distribution across planning areas.
+
+## Age Distribution by Planning Area
+
+We examine how age is distributed across different planning areas. This helps identify regions with high concentrations of children, working-age adults, or the elderly.
+
+```{r}
+respop %>%
+  filter(Age <= 100) %>%
+  group_by(PA, Age) %>%
+  summarise(Total = sum(Pop), .groups = "drop") %>%
+  ggplot(aes(x = Age, y = Total)) +
+  geom_area(fill = "#69b3a2", alpha = 0.8) +
+  facet_wrap(~ PA, scales = "free_y") +
+  theme_minimal() +
+  labs(title = "Age Distribution by Planning Area",
+       x = "Age",
+       y = "Total Population")
+```
+
+::: callout-note
+## Interpretation
+
+This visualization reveals population aging trends, youth concentration zones, and demographic imbalances across urban zones.
+:::
+
+## Population Pyramid of Selected Planning Area
+
+To better understand demographic composition, we plot a **population pyramid** for a selected planning area (e.g., *Bedok*).
+
+```{r}
+respop %>%
+  filter(PA == "Bedok") %>%
+  mutate(Pop = ifelse(Sex == "Males", -Pop, Pop)) %>%
+  ggplot(aes(x = Age, y = Pop, fill = Sex)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  scale_y_continuous(labels = abs) +
+  scale_fill_manual(values = c("Males" = "#1f77b4", "Females" = "#ff7f0e")) +
+  theme_minimal() +
+  labs(title = "Population Pyramid of Bedok (2024)",
+       x = "Age",
+       y = "Population",
+       fill = "Sex")
+```
+
+::: callout-note
+## Interpretation
+
+A balanced pyramid indicates demographic stability, while irregular shapes may signal aging or youth dominance.
+:::
+
+## Gender Ratio by Planning Area
+
+This analysis identifies whether males or females dominate in specific regions by calculating the male-to-female ratio.
+
+```{r}
+gender_ratio <- respop %>%
+  group_by(PA, Sex) %>%
+  summarise(Total = sum(Pop), .groups = "drop") %>%
+  pivot_wider(names_from = Sex, values_from = Total) %>%
+  mutate(Ratio = Males / Females)
+
+ggplot(gender_ratio, aes(x = reorder(PA, Ratio), y = Ratio)) +
+  geom_col(fill = "steelblue") +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "red") +
+  coord_flip() +
+  theme_minimal() +
+  labs(title = "Male-to-Female Ratio by Planning Area",
+       x = "Planning Area",
+       y = "Ratio (M/F)")
+```
+
+::: callout-note
+## Interpretation
+
+Ratios significantly above or below 1 indicate gender imbalance, which may affect planning for education, healthcare, or housing.
+:::
+
+## Total Population by Planning Area
+
+This chart shows which regions are most densely populated.
+
+```{r}
+respop %>%
+  group_by(PA) %>%
+  summarise(Total_Pop = sum(Pop), .groups = "drop") %>%
+  ggplot(aes(x = reorder(PA, Total_Pop), y = Total_Pop)) +
+  geom_col(fill = "#2ca02c") +
+  coord_flip() +
+  theme_minimal() +
+  labs(title = "Total Population by Planning Area (2024)",
+       x = "Planning Area",
+       y = "Total Population")
+```
+
+::: callout-note
+## Interpretation
+
+This helps highlight urban hotspots and areas requiring infrastructure support.
+:::
+
+# Summary
+
+This analysis explored the 2024 Singapore resident population from multiple angles:
+
+-   **Age Distribution**:\
+    Planning areas such as *Tampines*, *Punggol*, and *Sengkang* exhibited a relatively young population profile, while areas like *Bukit Timah* and *Queenstown* displayed a heavier concentration of elderly residents.
+-   **Gender Ratio**:\
+    Most planning areas maintained a gender ratio close to parity. However, certain deviations suggest localized gender imbalances, potentially influenced by housing, migration, or economic factors.
+-   **Population Pyramid**:\
+    The age-gender structure of *Bedok* revealed a well-distributed demographic, with noticeable shrinkage at younger ages, possibly reflecting lower birth rates.
+-   **Population Size by Region**:\
+    Central areas such as *Jurong West*, *Tampines*, and *Woodlands* registered the highest total populations, indicating demand for robust infrastructure and public services.
+
+# Conclusion and Future Work
+
+## Conclusion
+
+This take-home exercise demonstrates how census microdata can be used to uncover meaningful insights into demographic distribution and structure. Understanding the **spatial and structural composition of residents** aids in planning for services such as education, eldercare, and transportation.
+
+## Future Work
+
+-   **Temporal Analysis**:\
+    Integrating time series data (e.g., from 2014 to 2024) would reveal trends such as aging, migration, or urbanization effects.
+-   **Geospatial Mapping**:\
+    Coupling this dataset with GIS spatial boundaries could produce population heatmaps and allow deeper spatial analysis.
+-   **Socioeconomic Enrichment**:\
+    Adding income, housing type, or employment data could support more targeted policy design.
+-   **Dependency Ratio Estimation**:\
+    Future work could categorize population into dependent (0–14, 65+) and working-age groups (15–64), supporting economic and healthcare planning.

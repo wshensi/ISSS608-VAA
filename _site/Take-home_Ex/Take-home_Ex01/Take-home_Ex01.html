@@ -9,7 +9,7 @@
 <meta name="author" content="Wang Shen Si">
 <meta name="dcterms.date" content="2025-05-02">
 
-<title>Take-home_Ex01 – ISSS608-VAA</title>
+<title>Take-home Exercise 1 – ISSS608-VAA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -122,6 +156,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../In-class_Ex/In-class_Ex01/In-class_Ex01.html">
  <span class="dropdown-text">In-class Exercise 1</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../In-class_Ex/In-class_Ex03/In-class_Ex03.html">
+ <span class="dropdown-text">In-class Exercise 3</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -129,7 +167,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Take-home Exercise</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-take-home-exercise">    
-        <li class="dropdown-header">Coming Soon</li>
+        <li>
+    <a class="dropdown-item" href="../../Take-home_Ex/Take-home_Ex01/Take-home_Ex01.html">
+ <span class="dropdown-text">Take-home Exercise 1</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -153,7 +194,40 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Page Contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
+  <ul class="collapse">
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">1.1</span> Background</a></li>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link" data-scroll-target="#objectives"><span class="header-section-number">1.2</span> Objectives</a></li>
+  </ul></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started"><span class="header-section-number">2</span> Getting Started</a>
+  <ul class="collapse">
+  <li><a href="#tools-used" id="toc-tools-used" class="nav-link" data-scroll-target="#tools-used"><span class="header-section-number">2.1</span> Tools Used</a></li>
+  <li><a href="#data-source" id="toc-data-source" class="nav-link" data-scroll-target="#data-source"><span class="header-section-number">2.2</span> Data Source</a></li>
+  </ul></li>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling"><span class="header-section-number">3</span> Data Wrangling</a>
+  <ul class="collapse">
+  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data"><span class="header-section-number">3.1</span> Import Data</a></li>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning"><span class="header-section-number">3.2</span> Data Cleaning</a></li>
+  </ul></li>
+  <li><a href="#exploratory-data-analysis-eda" id="toc-exploratory-data-analysis-eda" class="nav-link" data-scroll-target="#exploratory-data-analysis-eda"><span class="header-section-number">4</span> Exploratory Data Analysis (EDA)</a>
+  <ul class="collapse">
+  <li><a href="#age-distribution-by-planning-area" id="toc-age-distribution-by-planning-area" class="nav-link" data-scroll-target="#age-distribution-by-planning-area"><span class="header-section-number">4.1</span> Age Distribution by Planning Area</a></li>
+  <li><a href="#population-pyramid-of-selected-planning-area" id="toc-population-pyramid-of-selected-planning-area" class="nav-link" data-scroll-target="#population-pyramid-of-selected-planning-area"><span class="header-section-number">4.2</span> Population Pyramid of Selected Planning Area</a></li>
+  <li><a href="#gender-ratio-by-planning-area" id="toc-gender-ratio-by-planning-area" class="nav-link" data-scroll-target="#gender-ratio-by-planning-area"><span class="header-section-number">4.3</span> Gender Ratio by Planning Area</a></li>
+  <li><a href="#total-population-by-planning-area" id="toc-total-population-by-planning-area" class="nav-link" data-scroll-target="#total-population-by-planning-area"><span class="header-section-number">4.4</span> Total Population by Planning Area</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">5</span> Summary</a></li>
+  <li><a href="#conclusion-and-future-work" id="toc-conclusion-and-future-work" class="nav-link" data-scroll-target="#conclusion-and-future-work"><span class="header-section-number">6</span> Conclusion and Future Work</a>
+  <ul class="collapse">
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">6.1</span> Conclusion</a></li>
+  <li><a href="#future-work" id="toc-future-work" class="nav-link" data-scroll-target="#future-work"><span class="header-section-number">6.2</span> Future Work</a></li>
+  </ul></li>
+  </ul>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -164,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Take-home_Ex01</h1>
+<h1 class="title">Take-home Exercise 1</h1>
 </div>
 
 
@@ -188,7 +262,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">May 2, 2025</p>
+      <p class="date-modified">May 4, 2025</p>
     </div>
   </div>
     
@@ -199,8 +273,307 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<section id="background" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="background"><span class="header-section-number">1.1</span> Background</h2>
+<p>Singapore is a densely populated and urbanized country where population distribution varies significantly across regions and age groups. Understanding these differences is critical for effective urban planning, resource allocation, and policy design.</p>
+</section>
+<section id="objectives" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="objectives"><span class="header-section-number">1.2</span> Objectives</h2>
+<p>This take-home exercise aims to explore Singapore’s population distribution using 2024 census data. The specific objectives are:</p>
+<ul>
+<li><p>To analyze the age structure across different planning areas.</p></li>
+<li><p>To examine gender ratios by region and age.</p></li>
+<li><p>To identify areas with a higher concentration of young or elderly populations.</p></li>
+</ul>
+</section>
+</section>
+<section id="getting-started" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Getting Started</h1>
+<section id="tools-used" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="tools-used"><span class="header-section-number">2.1</span> Tools Used</h2>
+<p>The following R packages were used to support the data wrangling and visualization:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(gifski, gapminder, plotly, gganimate, tidyverse, ggiraph, DT, </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>               ggridges, patchwork, ggstatsplot, GGally, corrplot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p><strong>tidyverse</strong>: Data manipulation and plotting</p></li>
+<li><p><strong>ggthemes</strong>: Additional themes for ggplot2</p></li>
+<li><p><strong>ggridges</strong>: Ridge plots for age distribution</p></li>
+<li><p><strong>patchwork</strong>: Layout manager for combining multiple plots</p></li>
+<li><p><strong>ggstatsplot</strong>: Adds statistical results to plots</p></li>
+<li><p><strong>GGally</strong>: Visualizing multiple variables at once</p></li>
+<li><p><strong>corrplot</strong>: Correlation matrix visualizations</p></li>
+</ul>
+</section>
+<section id="data-source" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="data-source"><span class="header-section-number">2.2</span> Data Source</h2>
+<p>The dataset used is sourced from the Department of Statistics Singapore, which includes the following fields:</p>
+<ul>
+<li><code>PA</code>: Planning Area</li>
+<li><code>SZ</code>: Subzone</li>
+<li><code>Age</code>: Age (0–100+)</li>
+<li><code>Sex</code>: Gender (Males / Females)</li>
+<li><code>Pop</code>: Number of residents</li>
+<li><code>Time</code>: Year (all 2024)</li>
+</ul>
+</section>
+</section>
+<section id="data-wrangling" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Data Wrangling</h1>
+<section id="import-data" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="import-data"><span class="header-section-number">3.1</span> Import Data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>respop <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/respopagesex2024.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="image/image1.png" class="img-fluid"></p>
+</section>
+<section id="data-cleaning" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="data-cleaning"><span class="header-section-number">3.2</span> Data Cleaning</h2>
+<p>To ensure the dataset is clean and ready for analysis, the following steps were performed:</p>
+<section id="step-1-remove-duplicates" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="step-1-remove-duplicates"><span class="header-section-number">3.2.1</span> Step 1: Remove Duplicates</h3>
+<p>Remove any duplicated rows to avoid double-counting:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>respop <span class="ot">&lt;-</span> <span class="fu">distinct</span>(respop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-2-handle-missing-values" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="step-2-handle-missing-values"><span class="header-section-number">3.2.2</span> Step 2: Handle Missing Values</h3>
+<p>Ensure there are no missing or malformed entries in critical columns:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>respop <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(respop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-3-standardize-age-format" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="step-3-standardize-age-format"><span class="header-section-number">3.2.3</span> Step 3: Standardize Age Format</h3>
+<p>The <code>Age</code> column includes a non-numeric category <code>"90_and_Over"</code> which cannot be coerced into an integer. We convert this category into a numeric age of <strong>90</strong>, representing a minimum estimate for analysis:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>respop <span class="ot">&lt;-</span> respop <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Age =</span> <span class="fu">ifelse</span>(Age <span class="sc">==</span> <span class="st">"90_and_Over"</span>, <span class="st">"90"</span>, Age),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">Age =</span> <span class="fu">as.integer</span>(Age))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This allows us to include elderly population data in age-based analyses such as population pyramids and dependency ratios.</p>
+</div>
+</div>
+</section>
+<section id="step-4-convert-column-types" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="step-4-convert-column-types"><span class="header-section-number">3.2.4</span> Step 4: Convert Column Types</h3>
+<p>Ensure categorical and numeric columns are properly formatted:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>respop <span class="ot">&lt;-</span> respop <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Sex =</span> <span class="fu">as.factor</span>(Sex),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">PA =</span> <span class="fu">as.factor</span>(PA),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">SZ =</span> <span class="fu">as.factor</span>(SZ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="exploratory-data-analysis-eda" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Exploratory Data Analysis (EDA)</h1>
+<p>This section explores Singapore’s 2024 resident population by analyzing age structure, gender ratios, and population distribution across planning areas.</p>
+<section id="age-distribution-by-planning-area" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="age-distribution-by-planning-area"><span class="header-section-number">4.1</span> Age Distribution by Planning Area</h2>
+<p>We examine how age is distributed across different planning areas. This helps identify regions with high concentrations of children, working-age adults, or the elderly.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>respop <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Age <span class="sc">&lt;=</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(PA, Age) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Total =</span> <span class="fu">sum</span>(Pop), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">y =</span> Total)) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">fill =</span> <span class="st">"#69b3a2"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> PA, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Age Distribution by Planning Area"</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Age"</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Total Population"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This visualization reveals population aging trends, youth concentration zones, and demographic imbalances across urban zones.</p>
+</div>
+</div>
+</section>
+<section id="population-pyramid-of-selected-planning-area" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="population-pyramid-of-selected-planning-area"><span class="header-section-number">4.2</span> Population Pyramid of Selected Planning Area</h2>
+<p>To better understand demographic composition, we plot a <strong>population pyramid</strong> for a selected planning area (e.g., <em>Bedok</em>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>respop <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(PA <span class="sc">==</span> <span class="st">"Bedok"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Pop =</span> <span class="fu">ifelse</span>(Sex <span class="sc">==</span> <span class="st">"Males"</span>, <span class="sc">-</span>Pop, Pop)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">y =</span> Pop, <span class="at">fill =</span> Sex)) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> abs) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Males"</span> <span class="ot">=</span> <span class="st">"#1f77b4"</span>, <span class="st">"Females"</span> <span class="ot">=</span> <span class="st">"#ff7f0e"</span>)) <span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Population Pyramid of Bedok (2024)"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Age"</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Population"</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Sex"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A balanced pyramid indicates demographic stability, while irregular shapes may signal aging or youth dominance.</p>
+</div>
+</div>
+</section>
+<section id="gender-ratio-by-planning-area" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="gender-ratio-by-planning-area"><span class="header-section-number">4.3</span> Gender Ratio by Planning Area</h2>
+<p>This analysis identifies whether males or females dominate in specific regions by calculating the male-to-female ratio.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>gender_ratio <span class="ot">&lt;-</span> respop <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(PA, Sex) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Total =</span> <span class="fu">sum</span>(Pop), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Sex, <span class="at">values_from =</span> Total) <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Ratio =</span> Males <span class="sc">/</span> Females)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gender_ratio, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(PA, Ratio), <span class="at">y =</span> Ratio)) <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Male-to-Female Ratio by Planning Area"</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Planning Area"</span>,</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Ratio (M/F)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ratios significantly above or below 1 indicate gender imbalance, which may affect planning for education, healthcare, or housing.</p>
+</div>
+</div>
+</section>
+<section id="total-population-by-planning-area" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="total-population-by-planning-area"><span class="header-section-number">4.4</span> Total Population by Planning Area</h2>
+<p>This chart shows which regions are most densely populated.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>respop <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(PA) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Total_Pop =</span> <span class="fu">sum</span>(Pop), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(PA, Total_Pop), <span class="at">y =</span> Total_Pop)) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"#2ca02c"</span>) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Total Population by Planning Area (2024)"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Planning Area"</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Total Population"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Take-home_Ex01_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This helps highlight urban hotspots and areas requiring infrastructure support.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="summary" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Summary</h1>
+<p>This analysis explored the 2024 Singapore resident population from multiple angles:</p>
+<ul>
+<li><strong>Age Distribution</strong>:<br>
+Planning areas such as <em>Tampines</em>, <em>Punggol</em>, and <em>Sengkang</em> exhibited a relatively young population profile, while areas like <em>Bukit Timah</em> and <em>Queenstown</em> displayed a heavier concentration of elderly residents.</li>
+<li><strong>Gender Ratio</strong>:<br>
+Most planning areas maintained a gender ratio close to parity. However, certain deviations suggest localized gender imbalances, potentially influenced by housing, migration, or economic factors.</li>
+<li><strong>Population Pyramid</strong>:<br>
+The age-gender structure of <em>Bedok</em> revealed a well-distributed demographic, with noticeable shrinkage at younger ages, possibly reflecting lower birth rates.</li>
+<li><strong>Population Size by Region</strong>:<br>
+Central areas such as <em>Jurong West</em>, <em>Tampines</em>, and <em>Woodlands</em> registered the highest total populations, indicating demand for robust infrastructure and public services.</li>
+</ul>
+</section>
+<section id="conclusion-and-future-work" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Conclusion and Future Work</h1>
+<section id="conclusion" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">6.1</span> Conclusion</h2>
+<p>This take-home exercise demonstrates how census microdata can be used to uncover meaningful insights into demographic distribution and structure. Understanding the <strong>spatial and structural composition of residents</strong> aids in planning for services such as education, eldercare, and transportation.</p>
+</section>
+<section id="future-work" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="future-work"><span class="header-section-number">6.2</span> Future Work</h2>
+<ul>
+<li><strong>Temporal Analysis</strong>:<br>
+Integrating time series data (e.g., from 2014 to 2024) would reveal trends such as aging, migration, or urbanization effects.</li>
+<li><strong>Geospatial Mapping</strong>:<br>
+Coupling this dataset with GIS spatial boundaries could produce population heatmaps and allow deeper spatial analysis.</li>
+<li><strong>Socioeconomic Enrichment</strong>:<br>
+Adding income, housing type, or employment data could support more targeted policy design.</li>
+<li><strong>Dependency Ratio Estimation</strong>:<br>
+Future work could categorize population into dependent (0–14, 65+) and working-age groups (15–64), supporting economic and healthcare planning.</li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
