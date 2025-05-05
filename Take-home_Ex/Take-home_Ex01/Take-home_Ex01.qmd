@@ -17,28 +17,27 @@ execute:
 
 ## Background
 
-Singapore is a densely populated and urbanized country where population distribution varies significantly across regions and age groups. Understanding these differences is critical for effective urban planning, resource allocation, and policy design.
+Singapore is a highly urbanized and densely populated nation, where population distribution varies significantly across regions and demographic groups. Gaining insights into these spatial and age-related patterns is critical for informed urban planning, resource allocation, and policy formulation.
 
 ## Objectives
 
-This take-home exercise aims to explore Singapore’s population distribution using 2024 census data. The specific objectives are:
+This take-home exercise aims to uncover key demographic insights from Singapore’s 2024 resident population dataset. Specifically, it seeks to:
 
--   To analyze the age structure across different planning areas.
+-   Analyze the age structure across planning areas
 
--   To examine gender ratios by region and age.
+-   Explore gender ratios across different regions
 
--   To identify areas with a higher concentration of young or elderly populations.
+-   Identify regions with higher concentrations of children or elderly residents
 
 # Getting Started
 
 ## Tools Used
 
-The following R packages were used to support the data wrangling and visualization:
+The following R packages were utilized for data pre-processing and visualization:
 
 ```{r}
 #| label: setup
 #| include: false
-# 隐藏安装过程
 if (!require("pacman")) install.packages("pacman")
 ```
 
@@ -46,34 +45,35 @@ if (!require("pacman")) install.packages("pacman")
 #| label: load-packages
 #| echo: true
 #| message: false
-pacman::p_load(gifski, gapminder, plotly, gganimate, tidyverse, ggiraph, DT, 
-               ggridges, patchwork, ggstatsplot, GGally, corrplot)
+pacman::p_load(plotly, tidyverse, DT, ggiraph, patchwork, ggstatsplot, GGally, corrplot)
 ```
 
--   **tidyverse**: Data manipulation and plotting
+-   **`tidyverse`**: Provides a collection of packages (including `dplyr`, `ggplot2`, `readr`) for data manipulation, transformation, and visualization. It forms the core of data wrangling and plotting throughout this analysis.
 
--   **ggthemes**: Additional themes for ggplot2
+-   **`ggiraph`**: Enables interactive versions of `ggplot2` graphics, allowing for tooltips and hover interactions in visualizations such as the population pyramid and bar charts.
 
--   **ggridges**: Ridge plots for age distribution
+-   **`plotly`**: Used to render interactive `ggplot` outputs in cases like `ggplotly()` if included (though in your shared code, the output rendering is primarily done via `girafe()` from `ggiraph`).
 
--   **patchwork**: Layout manager for combining multiple plots
+-   **`DT`**: Provides a wrapper for the JavaScript DataTables library. It is used to display interactive, searchable, and scrollable HTML tables, useful for previewing datasets after each cleaning step.
 
--   **ggstatsplot**: Adds statistical results to plots
+-   **`patchwork`**: A layout manager for combining multiple `ggplot2` plots into a cohesive visual grid using a simple and expressive syntax like `plot1 + plot2`. It helps in creating dashboards or side-by-side comparisons.
 
--   **GGally**: Visualizing multiple variables at once
+-   **`ggstatsplot`**: Simplifies statistical visualization by integrating results such as p-values, effect sizes, and confidence intervals directly into `ggplot2` charts. Useful for comparing group differences and testing statistical significance visually.
 
--   **corrplot**: Correlation matrix visualizations
+-   **`GGally`**: Extends `ggplot2` by adding functions like `ggpairs()` for plotting pairwise relationships between variables. It is particularly useful in exploratory data analysis to visualize correlations and distributions across multiple dimensions.
+
+-   **`corrplot`**: Specializes in visualizing correlation matrices through heatmaps, circle plots, and color gradients. Helps in identifying variable relationships and multicollinearity in datasets.
 
 ## Data Source
 
-The dataset used is sourced from the Department of Statistics Singapore, which includes the following fields:
+The dataset originates from Singapore’s Department of Statistics (DOS) and contains:
 
 -   `PA`: Planning Area
 -   `SZ`: Subzone
--   `Age`: Age (0–100+)
+-   `Age`: Age (ranging from 0 to 100+)
 -   `Sex`: Gender (Males / Females)
 -   `Pop`: Number of residents
--   `Time`: Year (all 2024)
+-   `Time`: Year of observation (2024)
 
 # Data Wrangling
 
@@ -93,27 +93,72 @@ To ensure the dataset is clean and ready for analysis, the following steps were 
 
 Remove any duplicated rows to avoid double-counting:
 
+::: panel-tabset
+## The Code Chunk
+
 ```{r}
+#| eval: false
 respop <- distinct(respop)
+DT::datatable(head(respop), options = list(scrollX = TRUE), caption = "After Removing Duplicates")
+
 ```
+
+## Data Table
+
+```{r}
+#| echo: false
+respop <- distinct(respop)
+DT::datatable(head(respop), options = list(scrollX = TRUE), caption = "After Removing Duplicates")
+```
+:::
 
 ### Step 2: Handle Missing Values
 
 Ensure there are no missing or malformed entries in critical columns:
 
+::: panel-tabset
+## The Code Chunk
+
 ```{r}
+#| eval: false
 respop <- drop_na(respop)
+DT::datatable(head(respop), options = list(scrollX = TRUE), caption = "After Dropping Missing Values")
 ```
+
+## Data Table
+
+```{r}
+#| echo: false
+respop <- drop_na(respop)
+DT::datatable(head(respop), options = list(scrollX = TRUE), caption = "After Dropping Missing Values")
+```
+:::
 
 ### Step 3: Standardize Age Format
 
 The `Age` column includes a non-numeric category `"90_and_Over"` which cannot be coerced into an integer. We convert this category into a numeric age of **90**, representing a minimum estimate for analysis:
 
+::: panel-tabset
+## The Code Chunk
+
 ```{r}
+#| eval: false
 respop <- respop %>%
   mutate(Age = ifelse(Age == "90_and_Over", "90", Age),
          Age = as.integer(Age))
+DT::datatable(head(respop), options = list(scrollX = TRUE), caption = "After Converting Age Format")
 ```
+
+## Data Table
+
+```{r}
+#| echo: false
+respop <- respop %>%
+  mutate(Age = ifelse(Age == "90_and_Over", "90", Age),
+         Age = as.integer(Age))
+DT::datatable(head(respop), options = list(scrollX = TRUE), caption = "After Converting Age Format")
+```
+:::
 
 ::: callout-note
 This allows us to include elderly population data in age-based analyses such as population pyramids and dependency ratios.
@@ -123,13 +168,33 @@ This allows us to include elderly population data in age-based analyses such as 
 
 Ensure categorical and numeric columns are properly formatted:
 
+::: panel-tabset
+## The Code Chunk
+
 ```{r}
+#| eval: false
 respop <- respop %>%
   mutate(
     Sex = as.factor(Sex),
     PA = as.factor(PA),
-    SZ = as.factor(SZ))
+    SZ = as.factor(SZ)
+  )
+DT::datatable(head(respop), options = list(scrollX = TRUE), caption = "After Converting Column Types")
 ```
+
+## Data Table
+
+```{r}
+#| echo: false
+respop <- respop %>%
+  mutate(
+    Sex = as.factor(Sex),
+    PA = as.factor(PA),
+    SZ = as.factor(SZ)
+  )
+DT::datatable(head(respop), options = list(scrollX = TRUE), caption = "After Converting Column Types")
+```
+:::
 
 # Exploratory Data Analysis (EDA)
 
@@ -230,7 +295,7 @@ girafe(ggobj = gg,
 ::: callout-note
 ## Interpretation
 
-This pyramid highlights Singapore’s overall demographic shape — identifying youth bulges, aging patterns, and gender distribution by cohort.
+The population pyramid clearly visualizes demographic trends such as a strong middle-aged working population and a gradually tapering older population, indicative of an aging society with slowing birth rates.
 :::
 
 ## Gender Ratio by Planning Area
@@ -249,25 +314,10 @@ library(ggiraph)
 ### Step 2: Calculate Gender Ratio and Prepare Tooltip
 
 -   Group data by `PA` and `Sex`;
-
-<!-- -->
-
 -   Summarize total male and female population;
-
-<!-- -->
-
 -   Calculate the gender ratio (`Males / Females`);
-
-<!-- -->
-
 -   Classify each area into `"More Males"`, `"More Females"`, or `"Balanced"`;
-
-<!-- -->
-
 -   Filter out areas with very small populations (`Total_Pop <= 100`);
-
-<!-- -->
-
 -   Add a `Tooltip` column to be displayed when hovering.
 
 ```{r}
@@ -341,14 +391,14 @@ girafe(ggobj = gg,
 ::: callout-note
 ## Interpretation
 
-Ratios above or below 1 highlight gender imbalances that may affect education, healthcare, and social policies.
+Most areas show balanced gender distributions, though some regions—such as Sungei Kadut and Changi—exhibit significant gender disparities, which may be related to industrial land use or specific housing demographics.
 :::
 
 ## Total Population by Planning Area
 
 This section presents the total 2024 population for each planning area in Singapore using an interactive bar chart. Tooltips reveal the exact population figures on hover, and low-population areas are excluded to improve readability.
 
-###  Step 1: Load Required Libraries
+### Step 1: Load Required Libraries
 
 We load `tidyverse` for data manipulation and `ggiraph` for interactive plotting.
 
@@ -425,24 +475,27 @@ girafe(ggobj = gg,
 ::: callout-note
 ## Interpretation
 
-This helps identify high-density zones like Tampines, Jurong West, and Woodlands, which may need more infrastructure and services.
+Highly populated areas such as Tampines, Bedok, and Sengkang stand out, reinforcing their role as major residential zones requiring more public services, infrastructure, and transport support.
 :::
 
 # Summary
 
-This analysis explored the 2024 Singapore resident population from multiple angles:
+This analysis revealed critical insights into Singapore's 2024 population:
 
--   **Age Distribution**:\
-    Planning areas such as *Tampines*, *Punggol*, and *Sengkang* exhibited a relatively young population profile, while areas like *Bukit Timah* and *Queenstown* displayed a heavier concentration of elderly residents.
--   **Gender Ratio**:\
-    Most planning areas maintained a gender ratio close to parity. However, certain deviations suggest localized gender imbalances, potentially influenced by housing, migration, or economic factors.
--   **Population Pyramid**:\
-    The age-gender structure of *Bedok* revealed a well-distributed demographic, with noticeable shrinkage at younger ages, possibly reflecting lower birth rates.
--   **Population Size by Region**:\
-    Central areas such as *Jurong West*, *Tampines*, and *Woodlands* registered the highest total populations, indicating demand for robust infrastructure and public services.
+-   **Age Profile**
+
+    Regions like Punggol, Sengkang, and Tampines are home to younger populations; Bukit Timah and Queenstown have a higher share of elderly residents.
+
+-   **Gender Balance**
+
+    Most areas are gender-balanced, though industrial zones show skewed ratios.
+
+-   **Population Concentration**
+
+    Dense residential areas cluster around northeastern and central regions, highlighting where urban planning efforts should be prioritized.
 
 # Conclusion
 
 ## Conclusion
 
-This take-home exercise demonstrates how census microdata can be used to uncover meaningful insights into demographic distribution and structure. Understanding the **spatial and structural composition of residents** aids in planning for services such as education, eldercare, and transportation.
+This take-home exercise demonstrates how demographic data—when effectively cleaned, grouped, and visualized—can provide valuable insights for government and planners. Visualizing age structures, gender distribution, and population concentrations can guide more equitable and efficient decisions in housing, transportation, healthcare, and education.
