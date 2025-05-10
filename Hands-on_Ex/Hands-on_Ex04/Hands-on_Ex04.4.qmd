@@ -1,17 +1,8 @@
 ---
-title: "Hands-on Exercise 4.4"
-description: "Funnel Plots for Fair Comparisons"
-date: "May 08, 2025"
-date-modified: "May 08, 2025"
-format: html
-author: "Wang Shen Si"
-editor: visual
-execute: 
-  eval: true
-  echo: true
-  warning: false
-  freeze: true
+usethis::edit_r_environ()
 ---
+
+title: "Hands-on Exercise 4.4" description: "Funnel Plots for Fair Comparisons" date: "May 08, 2025" date-modified: "May 08, 2025" format: html author: "Wang Shen Si" editor: visual execute: eval: true echo: true warning: false freeze: true ---
 
 ## **Overview**
 
