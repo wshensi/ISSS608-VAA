@@ -19,7 +19,7 @@ Visualising distribution is not new in statistical analysis. In chapter 1 we hav
 
 ## **Getting Started**
 
-###  **Installing and loading the packages**
+### **Installing and loading the packages**
 
 For the purpose of this exercise, the following R packages will be used, they are:
 
