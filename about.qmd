@@ -1,3 +1,5 @@
+Sys.getenv("GITHUB_PAT")
+
 ---
 title: "ISSS608-VAA- About"
 description: ""
