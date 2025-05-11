@@ -1,0 +1,182 @@
+---
+title: "Take-home Exercise 1 (Part 2)"
+description: ""
+date: "May 11, 2025"
+date-modified: "May 11, 2025"
+format: html
+author: "Wang Shen Si"
+editor: visual
+execute: 
+  eval: true
+  echo: true
+  warning: false
+  freeze: true
+---
+
+```{r}
+pacman::p_load(tidyverse, haven,
+               ggrepel, ggthemes,
+               ggridges, ggdist,
+               patchwork, scales, ggExtra)
+```
+
+```{r}
+sgresident <- read_csv("data/respopagesex2024.csv ")
+```
+
+```{r}
+glimpse(sgresident)
+```
+
+```{r}
+sgresident[duplicated(sgresident),]
+```
+
+```{r}
+sgresident <- sgresident %>% 
+  mutate(Age = as.numeric(Age))
+sgresident <- sgresident %>%
+  mutate(Sex = factor(Sex, levels = c("Males", "Females")))
+sgresident <- sgresident %>%
+  mutate(Time = as.integer(Time))
+```
+
+```{r}
+colSums(is.na(sgresident ))
+```
+
+```{r}
+head(sgresident, 200)
+```
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(ggdist)
+library(scales)
+
+# 确保 Age 是数值型
+df_age_dist <- sgresident %>%
+  mutate(Age = as.numeric(Age)) %>%
+  drop_na(Age, PA, Pop)
+
+# 选前4个最多人口的地区（可改成 Region）
+top4_pa <- df_age_dist %>%
+  group_by(PA) %>%
+  summarise(Total_Pop = sum(Pop, na.rm = TRUE)) %>%
+  arrange(desc(Total_Pop)) %>%
+  slice_head(n = 4) %>%
+  pull(PA)
+
+df_age_dist <- df_age_dist %>%
+  filter(PA %in% top4_pa)
+
+# 加权平均年龄
+mean_age <- df_age_dist %>%
+  group_by(PA) %>%
+  summarise(weighted_mean_age = weighted.mean(Age, w = Pop, na.rm = TRUE), .groups = "drop")
+
+# 绘图
+ggplot(df_age_dist, aes(x = PA, y = Age, weight = Pop)) +
+  stat_halfeye(fill_type = "segments", alpha = 0.3) +
+  stat_interval() +
+  stat_summary(geom = "point", fun = median, color = "black") +
+  geom_point(
+    data = mean_age,
+    aes(x = PA, y = weighted_mean_age),
+    color = "red", size = 3, shape = 18, inherit.aes = FALSE
+  ) +
+  scale_y_continuous(
+    limits = c(0, 100),
+    breaks = seq(0, 100, 10)
+  ) +
+  labs(
+    title = "Age Distribution by Region",
+    subtitle = "Red diamonds = weighted mean age · Black dots = median age",
+    caption = "Data: Singapore Department of Statistics, 2024",
+    x = "Region",
+    y = "Age (continuous)"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.background = element_rect(fill = "grey97", color = NA),
+    panel.grid = element_blank(),
+    panel.grid.major.y = element_line(linewidth = 0.1, color = "grey75"),
+    strip.background = element_blank(),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(margin = margin(b = 10), size = 10),
+    plot.caption = element_text(margin = margin(t = 10), size = 8),
+    plot.margin = margin(10, 10, 10, 10)
+  )
+
+```
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(ggdist)
+library(scales)
+
+# 确保 Age 是数值型
+df_age_dist <- sgresident %>%
+  mutate(Age = as.numeric(Age)) %>%
+  drop_na(Age, PA, Pop)
+
+# 选前4个最多人口的地区（可改成 Region）
+top4_pa <- df_age_dist %>%
+  group_by(PA) %>%
+  summarise(Total_Pop = sum(Pop, na.rm = TRUE)) %>%
+  arrange(desc(Total_Pop)) %>%
+  slice_head(n = 6) %>%
+  pull(PA)
+
+df_age_dist <- df_age_dist %>%
+  filter(PA %in% top4_pa)
+
+# 加权平均年龄
+mean_age <- df_age_dist %>%
+  group_by(PA) %>%
+  summarise(weighted_mean_age = weighted.mean(Age, w = Pop, na.rm = TRUE), .groups = "drop")
+
+
+ggplot(df_age_dist, aes(x = PA, y = Age, weight = Pop)) +
+  stat_halfeye(fill = "grey60", color = NA, alpha = 0.3) +
+  geom_boxplot(
+    aes(group = PA),
+    width = 0.3,
+    fill = "white",
+    color = "black",
+    outlier.shape = NA
+  ) +
+  stat_summary(geom = "point", fun = median, color = "black") +
+  geom_point(
+    data = mean_age,
+    aes(x = PA, y = weighted_mean_age),
+    color = "red", size = 3, shape = 18, inherit.aes = FALSE
+  ) +
+  scale_y_continuous(
+    limits = c(0, 100),
+    breaks = seq(0, 100, 10)
+  ) +
+  labs(
+    title = "Age Distribution by Region",
+    subtitle = "Red diamonds = weighted mean age · Black dots = median age",
+    caption = "Data: Singapore Department of Statistics, 2024",
+    x = "Region",
+    y = "Age (continuous)"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.background = element_rect(fill = "grey97", color = NA),
+    panel.grid = element_blank(),
+    panel.grid.major.y = element_line(linewidth = 0.1, color = "grey75"),
+    strip.background = element_blank(),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(margin = margin(b = 10), size = 10),
+    plot.caption = element_text(margin = margin(t = 10), size = 8),
+    plot.margin = margin(10, 10, 10, 10)
+  )
+
+```
