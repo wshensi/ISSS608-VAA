@@ -30,7 +30,7 @@ pacman::p_load(tidyverse, haven,
                patchwork, scales, ggExtra)
 ```
 
-## **Import data** 
+## **Import data**
 
 To accomplish the task, Singapore Residents by Planning Area / Subzone, Single Year of Age and Sex, June 2024 dataset shares by [Department of Statistics, Singapore (DOS)](https://www.singstat.gov.sg/) should be used.
 
@@ -207,7 +207,7 @@ The original visualization only focuses on the 30–49 age group, which captures
 
 With six separate panels, numerous overlaid data points, and a log-scaled axis, the original chart demands high cognitive effort. Viewers may find it difficult to extract key insights at a glance. In contrast, the revised visual adopts a consolidated layout, plotting all planning areas on the same axis, which facilitates faster and more effective interpretation.
 
-### Lack of Statistical Annotations and Visual Emphasis 
+### Lack of Statistical Annotations and Visual Emphasis
 
 While the original boxplots display medians and quartiles, they omit key statistical markers such as weighted mean age or explicit group-level annotations. The revised version improves upon this by adding red diamonds to indicate weighted means and black dots for medians. These additions guide attention to population central tendencies and enhance overall communicative clarity.
 
