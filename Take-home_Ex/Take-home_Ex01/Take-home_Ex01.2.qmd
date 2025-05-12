@@ -15,7 +15,7 @@ execute:
 
 # Introduction
 
-This page presents a visualisation critique and redesign based on a submission by my course-mate, XU XINYI, for the third exploratory data analysis task (EDA 3). The original plot titled *“Box Plot with Data Superimposed – Population by Age Group (30–49), Across Planning Areas (2024)”* used faceted box plots to visualize population distribution across six major planning areas in Singapore.
+This page presents a visualisation critique and redesign based on a submission by my course-mate, [XU XINYI](https://xinyixu.netlify.app/take-home_exercise/take-home_ex01/take-home_exercise01), for the third exploratory data analysis task (EDA 3). The original plot titled *“Box Plot with Data Superimposed – Population by Age Group (30–49), Across Planning Areas (2024)”* used faceted box plots to visualize population distribution across six major planning areas in Singapore.
 
 # **Getting started**
 
