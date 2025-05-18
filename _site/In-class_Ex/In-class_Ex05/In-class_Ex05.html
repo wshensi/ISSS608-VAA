@@ -7,10 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Wang Shen Si">
-<meta name="dcterms.date" content="2025-05-02">
-<meta name="description" content="Superstore Sales and Profit Report">
+<meta name="dcterms.date" content="2025-05-17">
 
-<title>In-class Exercise 1 – ISSS608-VAA</title>
+<title>MC1: The Rising – ISSS608-VAA</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -195,8 +228,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Page Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#created-on-tableau" id="toc-created-on-tableau" class="nav-link active" data-scroll-target="#created-on-tableau"><span class="header-section-number">1</span> <strong>Created on Tableau:</strong></a></li>
-  <li><a href="#superstore-sales-and-profit-report" id="toc-superstore-sales-and-profit-report" class="nav-link" data-scroll-target="#superstore-sales-and-profit-report"><span class="header-section-number">2</span> Superstore Sales and Profit Report</a></li>
+  <li><a href="#initial-eda" id="toc-initial-eda" class="nav-link active" data-scroll-target="#initial-eda"><span class="header-section-number">1</span> Initial EDA</a></li>
+  <li><a href="#creating-knowledge-graph" id="toc-creating-knowledge-graph" class="nav-link" data-scroll-target="#creating-knowledge-graph"><span class="header-section-number">2</span> Creating Knowledge Graph</a></li>
+  <li><a href="#visualizing-the-knowledge-graph" id="toc-visualizing-the-knowledge-graph" class="nav-link" data-scroll-target="#visualizing-the-knowledge-graph"><span class="header-section-number">3</span> Visualizing the knowledge graph</a></li>
   </ul>
 </nav>
 </nav>
@@ -209,14 +243,9 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">In-class Exercise 1</h1>
+<h1 class="title">MC1: The Rising</h1>
 </div>
 
-<div>
-  <div class="description">
-    Superstore Sales and Profit Report
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -231,14 +260,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 2, 2025</p>
+      <p class="date">May 17, 2025</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">May 2, 2025</p>
+      <p class="date-modified">May 17, 2025</p>
     </div>
   </div>
     
@@ -249,40 +278,163 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="created-on-tableau" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="created-on-tableau"><span class="header-section-number">1</span> <strong>Created on Tableau:</strong></h2>
-<p><img src="https://isss608-vriadi.netlify.app/images/Tableau-Logo.jpg" class="img-fluid" width="116"></p>
-</section>
-<section id="superstore-sales-and-profit-report" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="superstore-sales-and-profit-report"><span class="header-section-number">2</span> Superstore Sales and Profit Report</h2>
-<p>Here is the sales and profit report visualized using Tableau:</p>
-<div id="viz1746124253118" class="tableauPlaceholder" style="position: relative">
-<noscript>
-<a href="#"> <img src="https://public.tableau.com/static/images/In/In-ClassEx02SuperstoreSalesandProfitReport_17456550823230/Dashboard1/1_rss.png" alt="Dashboard 1" style="border: none"> </a>
-</noscript>
-<object class="tableauViz" style="display:none;">
-<p><param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F"> <param name="embed_code_version" value="3"> <param name="site_root" value=""> <param name="name" value="In-ClassEx02SuperstoreSalesandProfitReport_17456550823230/Dashboard1"> <param name="tabs" value="no"> <param name="toolbar" value="yes"> <param name="static_image" value="https://public.tableau.com/static/images/In/In-ClassEx02SuperstoreSalesandProfitReport_17456550823230/Dashboard1/1.png"> <param name="animate_transition" value="yes"> <param name="display_static_image" value="yes"> <param name="display_spinner" value="yes"> <param name="display_overlay" value="yes"> <param name="display_count" value="yes"> <param name="language" value="en-US"></p>
-</object>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, jsonlite, SmartEDA, tidygraph, ggraph)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<script type="text/javascript">
-  var divElement = document.getElementById('viz1746124253118');
-  var vizElement = divElement.getElementsByTagName('object')[0];
-  if (divElement.offsetWidth > 800) {
-    vizElement.style.width = '100%';
-    vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-  } else if (divElement.offsetWidth > 500) {
-    vizElement.style.width = '100%';
-    vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-  } else {
-    vizElement.style.width = '100%';
-    vizElement.style.height = '1027px';
-  }
-  var scriptElement = document.createElement('script');
-  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-  vizElement.parentNode.insertBefore(scriptElement, vizElement);
-</script>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>kg <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">"data/MC1_graph.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="inspect-structure" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="inspect-structure"><span class="header-section-number">0.1</span> Inspect Structure</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(kg, <span class="at">max.level =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 5
+ $ directed  : logi TRUE
+ $ multigraph: logi TRUE
+ $ graph     :List of 2
+ $ nodes     :'data.frame': 17412 obs. of  10 variables:
+ $ links     :'data.frame': 37857 obs. of  4 variables:</code></pre>
+</div>
+</div>
+</section>
+<section id="extract-and-inspect" class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="extract-and-inspect"><span class="header-section-number">0.2</span> Extract and Inspect</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>nodes_tbl <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(kg<span class="sc">$</span>nodes)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>edges_tbl <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(kg<span class="sc">$</span>links)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="initial-eda" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="initial-eda"><span class="header-section-number">1</span> Initial EDA</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> edges_tbl,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">y =</span> <span class="st">`</span><span class="at">Edge Type</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="In-class_Ex05_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-knowledge-graph" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="creating-knowledge-graph"><span class="header-section-number">2</span> Creating Knowledge Graph</h2>
+<p>This is</p>
+<section id="step-1-mapping-from-node-id-to-row-index" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="step-1-mapping-from-node-id-to-row-index"><span class="header-section-number">2.1</span> Step 1: Mapping from node id to row index</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>id_map <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">id =</span> nodes_tbl<span class="sc">$</span>id,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">index =</span> <span class="fu">seq_len</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">nrow</span>(nodes_tbl)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This ensures each id from your node list is mapped to the correct row number.</p>
+</section>
+<section id="step-2-map-source-and-target-ids-to-row-indices" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="step-2-map-source-and-target-ids-to-row-indices"><span class="header-section-number">2.2</span> Step 2: Map source and target IDs to row indices</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>edges_tbl <span class="ot">&lt;-</span> edges_tbl <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(id_map, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"source"</span> <span class="ot">=</span> <span class="st">"id"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">from =</span> index) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(id_map, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"target"</span> <span class="ot">=</span> <span class="st">"id"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">to =</span> index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-3-filter-our-any-unmatched-invalid-edges" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="step-3-filter-our-any-unmatched-invalid-edges"><span class="header-section-number">2.3</span> Step 3: Filter our any unmatched (invalid) edges</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>edges_tbl <span class="ot">&lt;-</span> edges_tbl <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(from), <span class="sc">!</span><span class="fu">is.na</span>(to))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-4-creating-the-graph" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="step-4-creating-the-graph"><span class="header-section-number">2.4</span> Step 4: Creating the graph</h3>
+<p>Lastly, <code>tbl_graph()</code> is used to create tidygraph’s graph object by is uing the code chunk below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>graph <span class="ot">&lt;-</span> <span class="fu">tbl_graph</span>(<span class="at">nodes =</span> nodes_tbl,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">edges =</span> edges_tbl,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">directed =</span> kg<span class="sc">$</span>directed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="visualizing-the-knowledge-graph" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="visualizing-the-knowledge-graph"><span class="header-section-number">3</span> Visualizing the knowledge graph</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="visualizing-the-whole-graph" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="visualizing-the-whole-graph"><span class="header-section-number">3.1</span> Visualizing the whole Graph</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(graph, <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">"gray"</span>) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="st">`</span><span class="at">Node Type</span><span class="st">`</span>),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualizing-the-sub-graph" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="visualizing-the-sub-graph"><span class="header-section-number">3.2</span> Visualizing the sub-graph</h3>
+<p>In this section, we are interested to create a sub-graph based on “Memberof” value in</p>
+<section id="step-1-filter-edges-to-only-memberof" class="level4" data-number="3.2.1">
+<h4 data-number="3.2.1" class="anchored" data-anchor-id="step-1-filter-edges-to-only-memberof"><span class="header-section-number">3.2.1</span> Step 1: Filter edges to only “MemberOf”</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>graph_memberof <span class="ot">&lt;-</span> graph <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">activate</span>(edges) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Edge Type</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"MemberOf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-2-extract-only-connected-nodes-i.e.-used-in-these-edges" class="level4" data-number="3.2.2">
+<h4 data-number="3.2.2" class="anchored" data-anchor-id="step-2-extract-only-connected-nodes-i.e.-used-in-these-edges"><span class="header-section-number">3.2.2</span> Step 2: Extract only connected nodes (i.e., used in these edges)</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>used_node_indices <span class="ot">&lt;-</span> graph_memberof <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">activate</span>(edges) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(from, to) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-3-keep-only-those-nodes" class="level4" data-number="3.2.3">
+<h4 data-number="3.2.3" class="anchored" data-anchor-id="step-3-keep-only-those-nodes"><span class="header-section-number">3.2.3</span> Step 3: Keep only those nodes</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>graph_memberof <span class="ot">&lt;-</span> graph_memberof <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">activate</span>(nodes) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">row_id =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(row_id <span class="sc">%in%</span> used_node_indices) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>row_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="plot-the-sub-graph" class="level4" data-number="3.2.4">
+<h4 data-number="3.2.4" class="anchored" data-anchor-id="plot-the-sub-graph"><span class="header-section-number">3.2.4</span> Plot the sub-graph</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(graph_memberof,</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">layout =</span> <span class="st">"fr"</span>) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">"gray"</span>) <span class="sc">+</span> </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> <span class="st">`</span><span class="at">Node Type</span><span class="st">`</span>),</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> name),</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="In-class_Ex05_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
