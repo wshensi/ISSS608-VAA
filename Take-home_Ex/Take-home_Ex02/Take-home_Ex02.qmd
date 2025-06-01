@@ -138,6 +138,8 @@ set.seed(1234)
 
 In the code chunk below, ggraph functions are used to visualise the whole graph.
 
+![](image/image01.png){width="617"}
+
 ```{r}
 # ggraph(graph, layout = "fr") +
 #   geom_edge_link(alpha = 0.3, 
