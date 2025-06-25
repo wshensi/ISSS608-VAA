@@ -371,12 +371,6 @@ library(dplyr)
 library(gt)
 library(gtExtras)
 
-sales_data <- sales_data %>%
-  rename(
-    Actual = Actual.x,
-    Target = Target.x
-  )
-
 sales_data %>%
   gt() %>%
   gt_plt_sparkline('Monthly Sales') %>%
@@ -387,6 +381,7 @@ sales_data %>%
     palette = c("lightblue", "black")
   ) %>%
   gt_theme_538()
+
 ```
 
 ## **Interactive Information Dashboard Design: reactable and reactablefmtr methods**
