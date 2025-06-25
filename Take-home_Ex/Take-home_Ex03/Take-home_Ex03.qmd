@@ -13,7 +13,7 @@ execute:
   freeze: true
 ---
 
-# 📘 Take-home Exercise 3
+# 📘 Storyboard
 
 This report is part of **Take-home Exercise 3** for ISSS608: Visual Analytics and Applications.
 
